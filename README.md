@@ -35,33 +35,34 @@ EMBEDDING SPACE(Dimensionality) - Mapping from a set of queries/ items to a vect
 
 BASIC ARCHITECTURE OF RECOMMENDATION SYSTEM ( 3 STAGE ) (check out this for more details-https://developers.google.com/machine-learning/recommendation )
 
-CANDIDATE GENERATION - FIRST STAGE OF POTENTIALLY REDUCING FROM A LARGER DATA TO SMALLER SUBSET.  
+ - CANDIDATE GENERATION - FIRST STAGE OF POTENTIALLY REDUCING FROM A LARGER DATA TO SMALLER SUBSET.  
 
-SCORING - SECOND STAGE OF SCALING DOWN THE OBTAINED SUBSET IN CANDIDATE GENERATION TO A PRECISELY SMALLER SET OF ITEMS TO BE RECOMMENDED TO THE USER
+ - SCORING - SECOND STAGE OF SCALING DOWN THE OBTAINED SUBSET IN CANDIDATE GENERATION TO A PRECISELY SMALLER SET OF ITEMS TO BE RECOMMENDED TO THE USER
 
-RE-RANKING - THIS IS FURTHER STAGE WHERE THE RECOMMENDED SET FROM SCORING IS FILTERED PROPERLY REMOVING EXPLICITLY DISLIKED ITEMS BY USER.
+ - RE-RANKING - THIS IS FURTHER STAGE WHERE THE RECOMMENDED SET FROM SCORING IS FILTERED PROPERLY REMOVING EXPLICITLY DISLIKED ITEMS BY USER.
 
 OVERVIEW OF CANDIDATE GENERATION:
-1.CONTENT BASED RECOMMENDATION SYSTEM
+
+ 1.CONTENT BASED RECOMMENDATION SYSTEM
 (APPROACHES - REGRESSION AND CLASSIFICATION OR EVEN USING NLP)
 
-2.COLLABORATIVE FILTERING RECOMMENDATION SYSTEM
+ 2.COLLABORATIVE FILTERING RECOMMENDATION SYSTEM
 (APPROACHES - 1. NEAREST NEIGHBORS , 2. LATENT FACTORS METHOD( MATRIX FACTORIZATION , DEEP LEARNING TECHNIQUE ))
 
-3.HYBRID TECHNIQUE 
+ 3.HYBRID TECHNIQUE 
 
 
 CONTENT BASED RECOMMENDATION SYSTEM:
   It recommends items to users based on explicit information provided by user.In content based approaches, the recommendation problem is either casted into classification problem (predict if user likes “i” item or not) or into regression problem ( predict the rating given by user to an item “i”).If our classification(or regression) is based on user features, then it is called ITEM CENTERED and if we are working with item features, then it is called USER CENTERED. 
-ITEM CENTERED : what is the probability of each user to like this item ( or what is the rate given by each user to this item ).
+ - ITEM CENTERED : what is the probability of each user to like this item ( or what is the rate given by each user to this item ).
 
-USER CENTERED : what is the probability of a particular user to like each item ( or what is the rate given by a user to each item ).
+ - USER CENTERED : what is the probability of a particular user to like each item ( or what is the rate given by a user to each item ).
 
 In most of the cases , the user may not want to answer too many questions. So, let's discuss few convenient approaches of content based filtering method.
-1.Item-centered Bayesian classifier ( INPUT - USER FEATURES
+ 1.Item-centered Bayesian classifier ( INPUT - USER FEATURES
 OUTPUT - LIKE OR DISLIKE ITEM )
 
-2.User-centered Linear Regression. ( INPUT - ITEM FEATURES
+ 2.User-centered Linear Regression. ( INPUT - ITEM FEATURES
 OUTPUT - PREDICT RATING )
 
 There are many other more accurate classification or regression ML models which can be used for item-centered classification or user-centered regression. 
@@ -78,12 +79,12 @@ We have to compute           PITEM ( LIKE | USER_FEATURES ) / PITEM (USER_FEATUR
 
 PROS AND CONS OF CONTENT BASED FILTERING METHOD. 
 
-PROS :
+ - PROS :
 
 THE MODEL DOESN’T NEED DATA ABOUT ANY OTHER USERS.
 THE RECOMMENDATIONS ARE SPECIFIC TO THIS USER. 
 
-CONS:
+ - CONS:
 
 IF THE CONTENT DOESN’T CONTAIN ENOUGH INFORMATION TO DISCRIMINATE THE ITEMS PRECISELY, THE RECOMMENDATION WILL NOT BE PRECISE AT THE END.
   THE RECOMMENDATION CANNOT BE PROVIDED CORRECTLY FOR NEW USER AS THERE IS NO PROPER PROFILE.
@@ -105,9 +106,9 @@ Memory based collaborative approach:
  let's say you have a given user "A" and a given item "I" but the user hasn't rated the item, you want to estimate that rating.
 There are two basic approaches to memory based collaborative filtering:
 
-User-User similarity: (“people like you like that” logic):  You find users (using nearest neighbors) that are similar to "A" and then you estimate the rating of "I" based on what those users think about the item.
+ - User-User similarity: (“people like you like that” logic):  You find users (using nearest neighbors) that are similar to "A" and then you estimate the rating of "I" based on what those users think about the item.
 
-Item-Item similarity: (“if you like this you might also like that” logic):  You find items (using nearest neighbors) that are similar to "I" and then you estimate the rating of I based on what "A" thinks about those items.
+ - Item-Item similarity: (“if you like this you might also like that” logic):  You find items (using nearest neighbors) that are similar to "I" and then you estimate the rating of I based on what "A" thinks about those items.
 
 Model based collaborative approach:
 
@@ -152,11 +153,11 @@ Each step guarantees in decrease in loss).
 
 PROS AND CONS OF COLLABORATIVE FILTERING
 
-PROS
+ - PROS
 
 SERENDIPITY - the model helps users to discover new interests.
 
-CONS
+ - CONS
 
 COLD START PROBLEM - 
 Accurate recommendations cannot be made for new users/items with no or little information.
@@ -170,8 +171,8 @@ Heuristics to generate embeddings of fresh item.
 SIMILARITY MEASURES (DEGREE OF CLOSENESS)
 
 Let S( q, x) be the similarity function. Where q is query(or user) embedding of the user and x  is item embedding. We need to recommend item embedding which are close to q embedding. The degree of similarity is measured in three different ways.
-1.COSINE RULE - Cos (q,x) ; More the value , higher the similarity.
-2.DOT PRODUCT - |q| |x| Cos(q,x) ; Upon normalization, Dot product similarity becomes equal to Cosine rule. More the value of dot product , higher is the similarity .
-3.EUCLIDEAN DISTANCE - sqrt(  (|q| - |x| )^(2) ) ; Smaller the distance, higher the similarity.
+ 1.COSINE RULE - Cos (q,x) ; More the value , higher the similarity.
+ 2.DOT PRODUCT - |q| |x| Cos(q,x) ; Upon normalization, Dot product similarity becomes equal to Cosine rule. More the value of dot product , higher is the similarity .
+ 3.EUCLIDEAN DISTANCE - sqrt(  (|q| - |x| )^(2) ) ; Smaller the distance, higher the similarity.
 
 
