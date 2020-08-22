@@ -1,4 +1,4 @@
-# Reccomendation-Systems
+# Recomendation-Systems
 
 A Recommender System refers to a filtering procedure that is capable of predicting the most liked preference of a set of items  for a user.
 
